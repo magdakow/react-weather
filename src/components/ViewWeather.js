@@ -25,7 +25,7 @@ class ViewWeather extends React.Component {
         this.setState({
             isLoading: true
         });
-        axios.post(`http://api.openweathermap.org/data/2.5/weather?q=` + receivedCity + `&appid=05508bb378ad891b493b0c886cca7a57&units=metric`)
+        axios.post(`https://api.openweathermap.org/data/2.5/weather?q=` + receivedCity + `&appid=05508bb378ad891b493b0c886cca7a57&units=metric`)
             .then(res => res.data).then(data => {
             console.log(data);
             this.processMain(data.main);
@@ -137,7 +137,7 @@ class ViewWeather extends React.Component {
                         <SearchCity getCityWeather={this.getCityWeatherData}/>
                         <div className='text'>
                             <div className={[this.state.isWeatherData ? 'visible' : 'invisible']}>
-                                <div className='text-center-city'>City name: {this.state.cityName}</div>
+                                <div className='text-center-city'> Weather for city: {this.state.cityName}</div>
                                 <br/>
                                 <div className='text-center-date'>Data downloaded at: {this.state.time}</div>
                                 <br/>
